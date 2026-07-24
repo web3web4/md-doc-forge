@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "md-doc-forge"
+version = "0.1.0"
+description = "Manifest-driven Markdown -> PDF/DOCX/ODT document generation engine, installable as a CLI."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "web3web4" }]
+dependencies = [
+  "python-docx>=1.1.0",
+  "PyMuPDF>=1.24.0",
+  "lxml>=5.0.0",
+]
+
+[project.scripts]
+md-doc-forge = "md_doc_forge.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/md_doc_forge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

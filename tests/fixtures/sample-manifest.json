@@ -1,0 +1,9 @@
+{
+  "documents": [
+    {
+      "src": "sample.md",
+      "outputDir": "generated",
+      "outputName": "sample"
+    }
+  ]
+}
