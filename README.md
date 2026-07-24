@@ -10,6 +10,18 @@ Extracted from the `saudi-realesate-tokenization-license` repo's document pipeli
 pipx install "git+https://github.com/web3web4/md-doc-forge.git"
 ```
 
+If `pipx` isn't available (e.g. `brew install pipx` isn't an option on your machine), install it into
+a dedicated venv and either activate that venv or call the CLI by its full path:
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install "git+https://github.com/web3web4/md-doc-forge.git"
+md-doc-forge build   # works while the venv is active
+
+# or, without activating, from any directory:
+/path/to/.venv/bin/md-doc-forge build
+```
+
 Or, for local development / editable installs:
 
 ```bash

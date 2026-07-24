@@ -1,7 +1,9 @@
 ---
 created: 2026-07-24 20:30
 created_by: Claude Sonnet 5 (GitHub Copilot)
-edits: []
+edits:
+  - date: 2026-07-24 21:15
+    author: Claude Sonnet 5 (GitHub Copilot)
 ---
 
 ## Context
@@ -41,6 +43,6 @@ Implemented end-to-end and verified:
 
 ### Notes
 
-- LibreOffice (`soffice`) is not installed on the machine this work was done on, so the Writer-PDF pipeline (`build_writer_pdf`) was implemented per spec but not locally exercised — it will be exercised by CI (which installs LibreOffice) on first push.
+- LibreOffice IS installed on the dev machine (at `/Applications/LibreOffice.app/Contents/MacOS/soffice`, not on `PATH`) — an initial `which soffice` check incorrectly reported it missing. A follow-up full-format run (`--format all` against the real `saudi-realesate-tokenization-license` manifest, all 8 documents) confirmed `build_writer_pdf`'s `_resolve_soffice()` PATH-then-app-bundle fallback works correctly and produces valid, non-corrupt, multi-page Writer PDFs with populated outlines.
 - `pipx` itself is not installed locally either; verification used a plain venv + `pip install` instead, which exercises the same installed-package code path `pipx` would use (pipx is just an isolated-venv wrapper around `pip install`).
 - Follow-ups (PyPI decision, `personal`-repo integration, the agent-skill wrapper) are tracked in `saudi-realesate-tokenization-license`'s `execution-plans/todo/scratch.md`, since they depend on that repo's and other repos' roadmaps, not on this engine.
